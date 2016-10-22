@@ -19,6 +19,7 @@ import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.parceler.Parcels;
 
 import java.util.ArrayList;
 
@@ -61,8 +62,7 @@ public class SearchActivity extends AppCompatActivity {
                         Intent intent = new Intent(getApplicationContext(), ArticleActivity.class);
                         Article article = articles.get(position);
                         // todo: make parcelible
-                        intent.putExtra("article", article);
-                        //intent.putExtra("url", article.getWebURL());
+                        intent.putExtra("article", Parcels.wrap(article));
                         startActivity(intent);
                     }
                 }
@@ -94,7 +94,6 @@ public class SearchActivity extends AppCompatActivity {
 
     public void onArticleSearch(View view) {
         String query = etQuery.getText().toString();
-        //Toast.makeText(this, "Searching for " + query, Toast.LENGTH_SHORT).show();
 
         AsyncHttpClient client = new AsyncHttpClient();
         String url = "http://api.nytimes.com/svc/search/v2/articlesearch.json";

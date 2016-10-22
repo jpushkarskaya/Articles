@@ -3,19 +3,24 @@ package com.jpushkarskaya.articles;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcel;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  * Created by epushkarskaya on 10/19/16.
  */
 
-public class Article implements Serializable {
+@Parcel
+public class Article {
 
     String webURL;
     String headline;
     String thumbNail;
+
+    // Used for Parcel
+    public Article() {
+    }
 
     public Article(JSONObject object) {
         try {
