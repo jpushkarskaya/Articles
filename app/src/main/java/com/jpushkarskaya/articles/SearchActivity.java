@@ -36,13 +36,16 @@ public class SearchActivity extends AppCompatActivity implements FilterDialogFra
     ArrayList<Article> articles;
     ArticleAdapter adapter;
 
+    private EndlessRecyclerViewScrollListener scrollListener;
+    int page;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        page = 0;
         setContentView(R.layout.activity_search);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         articles = new ArrayList<>();
         setUpViews();
     }
@@ -53,7 +56,8 @@ public class SearchActivity extends AppCompatActivity implements FilterDialogFra
         rvResults = (RecyclerView) findViewById(R.id.rvResults);
         adapter = new ArticleAdapter(this, articles);
         rvResults.setAdapter(adapter);
-        rvResults.setLayoutManager(new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL));
+        StaggeredGridLayoutManager manager = new StaggeredGridLayoutManager(3, StaggeredGridLayoutManager.VERTICAL);
+        rvResults.setLayoutManager(manager);
 
         // add on click listener
         ItemClickSupport.addTo(rvResults).setOnItemClickListener(
@@ -68,6 +72,19 @@ public class SearchActivity extends AppCompatActivity implements FilterDialogFra
                     }
                 }
         );
+
+        // endless scrolling
+        scrollListener = new EndlessRecyclerViewScrollListener(manager) {
+            @Override
+            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+                // Triggered only when new data needs to be appended to the list
+                // Add whatever code is needed to append new items to the bottom of the list
+                doSearch();
+            }
+        };
+
+        // Adds the scroll listener to RecyclerView
+        rvResults.addOnScrollListener(scrollListener);
 
     }
 
@@ -95,13 +112,21 @@ public class SearchActivity extends AppCompatActivity implements FilterDialogFra
     }
 
     public void onArticleSearch(View view) {
+        articles.removeAll(articles);
+        adapter.notifyDataSetChanged();
+        page = 0;
+        scrollListener.resetState();
+        doSearch();
+    }
+
+    private void doSearch() {
         String query = etQuery.getText().toString();
 
         AsyncHttpClient client = new AsyncHttpClient();
         String url = "http://api.nytimes.com/svc/search/v2/articlesearch.json";
         RequestParams params = new RequestParams();
         params.put("api-key", "ab6f9104f1df42b982f7891c7dfb9005");
-        params.put("page", 0);
+        params.put("page", page++);
         params.put("q", query);
 
         params = Filter.applyFilter(filter, params);
@@ -114,7 +139,6 @@ public class SearchActivity extends AppCompatActivity implements FilterDialogFra
 
                 try {
                     articleJSONResults = response.getJSONObject("response").getJSONArray("docs");
-                    articles.removeAll(articles);
                     articles.addAll(Article.fromJSONArray(articleJSONResults));
                     adapter.notifyDataSetChanged();
                     Log.d("DEBUG", articles.toString());
@@ -124,7 +148,6 @@ public class SearchActivity extends AppCompatActivity implements FilterDialogFra
 
             }
         });
-
     }
 
     private void showFilterDialog() {
