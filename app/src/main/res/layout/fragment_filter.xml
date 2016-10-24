@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/dialogBackground">
+
+    <TextView
+        android:id="@+id/tvDate"
+        style="@style/filterLabels"
+        android:text="@string/date_label"
+        android:layout_width="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fragment_item_vertical_margin"/>
+
+    <DatePicker
+        android:id="@+id/pickerBeginDate"
+        style="@style/DatePicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tvDate"/>
+
+    <ImageButton
+        android:id="@+id/btnExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleX="0.6"
+        android:scaleY="0.6"
+        android:src="@drawable/image_exit"
+        android:layout_alignParentTop="true"
+        android:layout_alignEnd="@id/pickerBeginDate"
+        android:layout_alignRight="@id/pickerBeginDate"
+        android:background="@android:color/transparent"
+        android:clickable="true"/>
+
+    <TextView
+        android:id="@+id/tvSort"
+        style="@style/filterLabels"
+        android:text="@string/sort_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pickerBeginDate"/>
+
+    <Spinner
+        android:id="@+id/spinnerSort"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvSort"
+        android:layout_marginLeft="50dp"
+        android:layout_marginStart="50dp"
+        android:scaleX="0.7"
+        android:scaleY="0.7"
+        android:layout_marginTop="@dimen/fragment_item_vertical_margin"
+        android:entries="@array/sort_array"/>
+
+
+    <TextView
+        android:id="@+id/tvNews"
+        style="@style/filterLabels"
+        android:text="@string/news_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fragment_item_vertical_margin"
+        android:layout_below="@id/spinnerSort"
+        />
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/checkboxHolder"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/fragment_item_vertical_margin"
+        android:layout_below="@id/tvNews"
+        android:layout_marginLeft="65dp"
+        android:layout_marginStart="65dp"
+        >
+
+        <CheckBox android:id="@+id/checkboxArts"
+            style="@style/Checkmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/arts" />
+
+        <CheckBox android:id="@+id/checkboxStyle"
+            style="@style/Checkmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/style" />
+
+        <CheckBox android:id="@+id/checkboxSports"
+            style="@style/Checkmark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sports" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnFilter"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:textSize="10sp"
+        android:text="@string/button_filter"
+        android:layout_below="@id/checkboxHolder"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:background="@color/buttonBackground"
+        android:clickable="true"
+        />
+
+
+</RelativeLayout>

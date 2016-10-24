@@ -45,7 +45,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
         String thumbNailURL = article.getThumbNail();
         if (!thumbNailURL.isEmpty()) {
             Picasso.with(getContext()).load(article.getThumbNail())
-                    .placeholder(R.mipmap.ic_launcher)
+                    .placeholder(R.drawable.news)
                     .into(holder.imgThumbnail);
             // todo: create real placeholder img
         }

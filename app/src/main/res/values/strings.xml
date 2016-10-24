@@ -1,7 +1,25 @@
 <resources>
     <string name="app_name">Articles</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_filters">Filters</string>
+
     <string name="search_hint">Enter Search Query</string>
     <string name="search_label">Search</string>
+
+    <string name="date_label">Begin Date</string>
+    <string name="sort_label">Sort Order</string>
+    <string name="news_label">News Desk</string>
+
     <string name="title_activity_article">ArticleActivity</string>
+
+    <string name="arts">Arts</string>
+    <string name="style">Fashion &amp; Style</string>
+    <string name="sports">Sports</string>
+
+    <string name="button_filter">Set Filter</string>
+
+    <string-array name="sort_array">
+        <item>newest</item>
+        <item>oldest</item>
+    </string-array>
+
 </resources>

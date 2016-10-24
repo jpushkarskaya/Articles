@@ -2,6 +2,7 @@ package com.jpushkarskaya.articles;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
@@ -25,12 +26,13 @@ import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
-public class SearchActivity extends AppCompatActivity {
+public class SearchActivity extends AppCompatActivity implements FilterDialogFragment.FilterDialogListener {
 
     EditText etQuery;
     Button btnSearch;
     RecyclerView rvResults;
 
+    Filter filter;
     ArrayList<Article> articles;
     ArticleAdapter adapter;
 
@@ -61,7 +63,6 @@ public class SearchActivity extends AppCompatActivity {
                     public void onItemClicked(RecyclerView recyclerView, int position, View v) {
                         Intent intent = new Intent(getApplicationContext(), ArticleActivity.class);
                         Article article = articles.get(position);
-                        // todo: make parcelible
                         intent.putExtra("article", Parcels.wrap(article));
                         startActivity(intent);
                     }
@@ -85,7 +86,8 @@ public class SearchActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_filter) {
+            showFilterDialog();
             return true;
         }
 
@@ -101,6 +103,8 @@ public class SearchActivity extends AppCompatActivity {
         params.put("api-key", "ab6f9104f1df42b982f7891c7dfb9005");
         params.put("page", 0);
         params.put("q", query);
+
+        params = Filter.applyFilter(filter, params);
 
         client.get(url, params, new JsonHttpResponseHandler() {
             @Override
@@ -121,5 +125,17 @@ public class SearchActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void showFilterDialog() {
+        FragmentManager manager = getSupportFragmentManager();
+        FilterDialogFragment filterDialogFragment = FilterDialogFragment.newInstance(filter);
+        filterDialogFragment.setFilterDialogListener(this);
+        filterDialogFragment.show(manager, "fragment_filter");
+    }
+
+    @Override
+    public void onFilter(Filter filter) {
+        this.filter = filter;
     }
 }
