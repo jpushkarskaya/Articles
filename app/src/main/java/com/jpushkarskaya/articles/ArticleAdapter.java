@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -44,7 +44,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
 
         String thumbNailURL = article.getThumbNail();
         if (!thumbNailURL.isEmpty()) {
-            Picasso.with(getContext()).load(article.getThumbNail())
+            Glide.with(getContext()).load(article.getThumbNail())
                     .placeholder(R.drawable.news)
                     .into(holder.imgThumbnail);
         }
