@@ -38,13 +38,19 @@
         android:background="@android:color/transparent"
         android:clickable="true"/>
 
+    <View
+    android:id="@+id/div1"
+    style="@style/Divider"
+    android:layout_marginTop="-10dp"
+    android:layout_below="@id/pickerBeginDate" />
+
     <TextView
         android:id="@+id/tvSort"
         style="@style/filterLabels"
         android:text="@string/sort_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/pickerBeginDate"/>
+        android:layout_below="@id/div1" />
 
     <Spinner
         android:id="@+id/spinnerSort"
@@ -58,6 +64,10 @@
         android:layout_marginTop="@dimen/fragment_item_vertical_margin"
         android:entries="@array/sort_array"/>
 
+    <View
+        android:id="@+id/div2"
+        style="@style/Divider"
+        android:layout_below="@id/spinnerSort" />
 
     <TextView
         android:id="@+id/tvNews"
@@ -66,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/fragment_item_vertical_margin"
-        android:layout_below="@id/spinnerSort"
+        android:layout_below="@id/div2"
         />
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
