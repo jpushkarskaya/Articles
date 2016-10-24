@@ -60,24 +60,16 @@ public class FilterDialogFragment extends DialogFragment {
 
         // handle buttons
         btnExit = (ImageButton) view.findViewById(R.id.btnExit);
-        btnExit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dismiss();
-            }
-        });
+        btnExit.setOnClickListener(v -> dismiss());
 
         btnFilter = (Button) view.findViewById(R.id.btnFilter);
-        btnFilter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Filter filter = new Filter();
-                filter.setDate(pickerBeginDate.getYear(), pickerBeginDate.getMonth(), pickerBeginDate.getDayOfMonth());
-                filter.setOrder(spinnerSort.getSelectedItemPosition());
-                filter.setDesks(checkboxArts.isChecked(), checkboxStyle.isChecked(), checkboxSports.isChecked());
-                listener.onFilter(filter);
-                dismiss();
-            }
+        btnFilter.setOnClickListener(v -> {
+            Filter filter = new Filter();
+            filter.setDate(pickerBeginDate.getYear(), pickerBeginDate.getMonth(), pickerBeginDate.getDayOfMonth());
+            filter.setOrder(spinnerSort.getSelectedItemPosition());
+            filter.setDesks(checkboxArts.isChecked(), checkboxStyle.isChecked(), checkboxSports.isChecked());
+            listener.onFilter(filter);
+            dismiss();
         });
 
         // handle other views

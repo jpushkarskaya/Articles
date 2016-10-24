@@ -19,7 +19,6 @@ public class ArticleActivity extends AppCompatActivity {
         Article article = (Article) Parcels.unwrap(getIntent().getParcelableExtra("article"));
         WebView webview = (WebView) findViewById(R.id.wvArticle);
 
-        // todo: add lamdba
         webview.setWebViewClient(new WebViewClient(){
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {

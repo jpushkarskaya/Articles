@@ -61,15 +61,11 @@ public class SearchActivity extends AppCompatActivity implements FilterDialogFra
 
         // add on click listener
         ItemClickSupport.addTo(rvResults).setOnItemClickListener(
-                new ItemClickSupport.OnItemClickListener() {
-                    //todo: use lamda
-                    @Override
-                    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-                        Intent intent = new Intent(getApplicationContext(), ArticleActivity.class);
-                        Article article = articles.get(position);
-                        intent.putExtra("article", Parcels.wrap(article));
-                        startActivity(intent);
-                    }
+                (recyclerView, position, v) -> {
+                    Intent intent = new Intent(getApplicationContext(), ArticleActivity.class);
+                    Article article = articles.get(position);
+                    intent.putExtra("article", Parcels.wrap(article));
+                    startActivity(intent);
                 }
         );
 

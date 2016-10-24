@@ -47,7 +47,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ViewHold
             Picasso.with(getContext()).load(article.getThumbNail())
                     .placeholder(R.drawable.news)
                     .into(holder.imgThumbnail);
-            // todo: create real placeholder img
         }
         holder.tvHeadline.setText(article.getHeadline());
     }
