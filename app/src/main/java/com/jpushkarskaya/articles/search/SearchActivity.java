@@ -128,7 +128,7 @@ public class SearchActivity extends AppCompatActivity implements FilterDialogFra
         AsyncHttpClient client = new AsyncHttpClient();
         String url = "http://api.nytimes.com/svc/search/v2/articlesearch.json";
         RequestParams params = new RequestParams();
-        params.put("api-key", "ab6f9104f1df42b982f7891c7dfb9005");
+        params.put("api-key", "1e412eeff01c467e9ac73a72178bc94d");
         params.put("page", page++);
         params.put("q", query);
 
