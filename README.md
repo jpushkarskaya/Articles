@@ -2,7 +2,7 @@
 
 **Articles** is an android app that allows a user to search for articles on web using simple filters. The app utilizes [New York Times Search API](http://developer.nytimes.com/docs/read/article_search_api_v2).
 
-Time spent: **10** hours spent in total
+Time spent: **13** hours spent in total
 
 ## User Stories
 
@@ -58,7 +58,7 @@ Describe any challenges encountered while building the app.
 ## Open-source libraries used
 
 - [Android Async HTTP](https://github.com/loopj/android-async-http) - Simple asynchronous HTTP requests with JSON parsing
-- [Picasso](http://square.github.io/picasso/) - Image loading and caching library for Android
+- [Glide](http://glide.thephpleague.com/) - Image loading and caching library for Android
 - [Parcel](https://github.com/johncarl81/parceler) - Parcels made easy
 
 ## License
