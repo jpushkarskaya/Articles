@@ -1,4 +1,4 @@
-package com.jpushkarskaya.articles;
+package com.jpushkarskaya.articles.article;
 
 import org.json.JSONArray;
 import org.json.JSONException;

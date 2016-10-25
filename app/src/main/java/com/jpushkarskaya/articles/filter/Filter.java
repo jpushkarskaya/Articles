@@ -1,4 +1,4 @@
-package com.jpushkarskaya.articles;
+package com.jpushkarskaya.articles.filter;
 
 import com.loopj.android.http.RequestParams;
 

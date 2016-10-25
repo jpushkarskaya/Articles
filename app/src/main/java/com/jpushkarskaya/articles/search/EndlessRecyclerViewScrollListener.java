@@ -1,4 +1,4 @@
-package com.jpushkarskaya.articles;
+package com.jpushkarskaya.articles.search;
 
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;

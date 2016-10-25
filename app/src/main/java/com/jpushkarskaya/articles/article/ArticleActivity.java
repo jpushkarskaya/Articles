@@ -1,4 +1,4 @@
-package com.jpushkarskaya.articles;
+package com.jpushkarskaya.articles.article;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import com.jpushkarskaya.articles.R;
 
 import org.parceler.Parcels;
 

@@ -1,7 +1,9 @@
-package com.jpushkarskaya.articles;
+package com.jpushkarskaya.articles.utils;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import com.jpushkarskaya.articles.R;
 
 /*
  * Copied by epushkarskaya on 10/20/16.

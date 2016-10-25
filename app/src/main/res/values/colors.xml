@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#834f52</color>
-    <color name="colorPrimaryDark">#324883</color>
-    <color name="colorAccent">#7caacf</color>
+    <color name="colorPrimaryDark">#223340</color>
+    <color name="colorPrimary">#7caacf</color>
+    <color name="colorAccent">#86494e</color>
+    <color name="colorAccentDark">#430c0c</color>
+    <color name="neutral">#a4a4a3</color>
 
     <color name="dialogBackground">@android:color/white</color>
-    <color name="buttonBackground">@color/colorAccent</color>
+    <color name="buttonBackground">@color/colorPrimary</color>
     <color name="checkmarkColor">@color/colorPrimaryDark</color>
-    <color name="divColor">@color/colorPrimary</color>
+    <color name="divColor">@color/colorAccent</color>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.jpushkarskaya.articles;
+package com.jpushkarskaya.articles.search;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +14,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.jpushkarskaya.articles.utils.ItemClickSupport;
+import com.jpushkarskaya.articles.R;
+import com.jpushkarskaya.articles.article.Article;
+import com.jpushkarskaya.articles.article.ArticleActivity;
+import com.jpushkarskaya.articles.article.ArticleAdapter;
+import com.jpushkarskaya.articles.filter.Filter;
+import com.jpushkarskaya.articles.filter.FilterDialogFragment;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
